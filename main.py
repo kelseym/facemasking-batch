@@ -87,7 +87,7 @@ for index, row in df.iterrows():
     scan_series = row['scan_series']
 
     # Call the function to launch the facemasking container using groups of four scan IDs from scan_series
-    scan_ids = scan_series.split(',')
+    scan_ids = str(scan_series).split(',')
     grouped_scan_ids = [scan_ids[i:i + 4] for i in range(0, len(scan_ids), 4)]
     for i, scan_group in enumerate(grouped_scan_ids, start=1):
         launch_facemasking_on_xnat(xnat_host_url, username, password, project, session_label, str(ref_scan_id),
